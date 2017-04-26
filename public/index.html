@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Simple login</title>
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Josefin+Slab">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+
+    </head>
+    <body>
+        <center>
+            <h1>Username : user , password : password</h1>
+            <p>Login below</p>
+            <table>
+                <form action="/login" method="post">
+                    <tr>
+                        <td>Username: </td>
+                        <td><input type="text" name="username" id="user" /></td>
+                    </tr>
+                    <tr>
+                        <td>Password: </td>
+                        <td><input type="password" name="pwd" id="password" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center"><input type="submit"  name="Login" value="Login" id="submit" class="class1"/>
+                    </tr>
+                </form>
+            </table>
+        </center>
+<table>
+        <form action="/register" method="post">
+                    <tr>
+                        <td>Username: </td>
+                        <td><input type="text" name="regUsername" id="regUsername" /></td>
+                    </tr>
+
+<tr>
+                        <td>Email: </td>
+                        <td><input type="text" name="regEmail" id="regEmail" /></td>
+                    </tr>
+
+                    
+
+                    <tr>
+                        <td>Password: </td>
+                        <td><input type="password" name="regPassword" id="regPassword" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center"><input type="submit"  name="register" value="Register"/>
+                    </tr>
+                </form>
+</table>
+    </body>
+</html>
