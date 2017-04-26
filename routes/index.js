@@ -7,7 +7,7 @@ var cassandra = require("cassandra-driver");
 var connection;
 var db_config = {
 contactPoints : ['127.0.0.1'],
-keyspace:'userdetails'
+keyspace:'booklist'
 };
 connection = new cassandra.Client(db_config);
 connection.connect(function(err,result){
@@ -67,7 +67,7 @@ passwordSuccess = 0;
 }
 }
 if(passwordSuccess == 1){
-request.session.sessId = usersessId;
+//request.session.sessId = usersessId;
 //response.render('home', { appTitle: 'HOME', username: body.Username +'home page .. welcome !!'});
 response.send('authorized');
 }
@@ -92,8 +92,29 @@ throw err;
 } 
 });
 console.log('user registered');
-request.session.sessId = usersessId;
+//request.session.sessId = usersessId;
 response.send('authorized 2');
 });
 
+
+router.get('/books',function(req,res){
+var data = {
+'error':1,
+'Books':'',
+};
+var select = 'SELECT * from books';
+connection.execute(select,function(err, rows){
+if(rows.length != 0){
+data['error'] = 0;
+data['Books'] = rows;
+res.json(data);
+}else{
+data['Books'] = 'No books Found..';
+res.json(data);
+}
+});
+});
+
+
 module.exports = router;
+
